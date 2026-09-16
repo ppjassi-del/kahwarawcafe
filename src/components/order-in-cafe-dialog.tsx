@@ -158,7 +158,7 @@ export function OrderInCafeDialog({
         )}
       </DialogTrigger>
 
-      <DialogContent className="max-w-xl max-h-[92vh] overflow-y-auto p-5 sm:p-7 bg-background border-border/80 shadow-2xl rounded-3xl">
+      <DialogContent className="w-[calc(100vw-1.5rem)] sm:w-full max-w-xl max-h-[90svh] overflow-y-auto p-4 sm:p-7 bg-background border-border/80 shadow-2xl rounded-2xl sm:rounded-3xl">
         {!submittedOrder ? (
           <div>
             {/* Header */}

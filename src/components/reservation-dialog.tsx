@@ -241,7 +241,7 @@ export function ReservationDialog({
         </button>
       </DialogTrigger>
 
-      <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto rounded-2xl border border-border/80 bg-background p-5 sm:p-7 shadow-2xl sm:max-w-lg">
+      <DialogContent className="w-[calc(100vw-1.5rem)] sm:w-full max-w-md sm:max-w-lg max-h-[90svh] overflow-y-auto rounded-2xl border border-border/80 bg-background p-4 sm:p-7 shadow-2xl">
         {/* Navigation Tab Switcher between "Book a Table" and "Find / Cancel" */}
         {!submitted && (
           <div className="mb-4 flex rounded-xl border border-border/70 bg-card/70 p-1">

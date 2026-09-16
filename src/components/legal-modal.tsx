@@ -45,52 +45,52 @@ export function LegalModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[88vh] max-w-3xl overflow-hidden p-0 sm:rounded-2xl border-border bg-background shadow-2xl flex flex-col">
+      <DialogContent className="max-h-[88vh] w-[calc(100vw-1.5rem)] sm:w-full max-w-3xl overflow-hidden p-0 rounded-2xl border-border bg-background shadow-2xl flex flex-col">
         {/* Header */}
-        <div className="border-b border-border/80 bg-muted/40 px-6 py-5 shrink-0">
+        <div className="border-b border-border/80 bg-muted/40 px-4 sm:px-6 py-4 sm:py-5 shrink-0">
           <DialogHeader>
             <div className="flex items-center gap-2.5 text-accent">
-              <ShieldCheck className="size-5" />
-              <span className="text-xs font-bold uppercase tracking-widest">
+              <ShieldCheck className="size-4 sm:size-5" />
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest">
                 Kahwa Raw Cafe Legal &amp; Guest Trust
               </span>
             </div>
-            <DialogTitle className="font-display text-2xl sm:text-3xl font-semibold mt-1">
+            <DialogTitle className="font-display text-xl sm:text-3xl font-semibold mt-1">
               Guest Policies &amp; Terms
             </DialogTitle>
-            <DialogDescription className="text-sm text-muted-foreground">
+            <DialogDescription className="text-xs sm:text-sm text-muted-foreground">
               Last updated: March 2026 • Effective for all guests, digital orders, and table reservations.
             </DialogDescription>
           </DialogHeader>
 
           {/* Tab Selector */}
-          <div className="mt-4">
+          <div className="mt-3.5 sm:mt-4">
             <Tabs
               value={activeTab}
               onValueChange={(val) => setActiveTab(val as LegalTab)}
               className="w-full"
             >
-              <TabsList className="grid w-full grid-cols-3 bg-background/80 p-1 border border-border/60 rounded-xl h-11">
+              <TabsList className="grid w-full grid-cols-3 bg-background/80 p-1 border border-border/60 rounded-xl h-10 sm:h-11">
                 <TabsTrigger
                   value="privacy"
-                  className="flex items-center justify-center gap-2 rounded-lg text-xs sm:text-sm font-semibold transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm"
+                  className="flex items-center justify-center gap-1 sm:gap-2 rounded-lg text-[11px] sm:text-xs md:text-sm font-semibold transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm px-1 sm:px-3 truncate"
                 >
-                  <Lock className="size-3.5" />
-                  <span>Privacy Policy</span>
+                  <Lock className="size-3 sm:size-3.5 shrink-0" />
+                  <span className="truncate">Privacy Policy</span>
                 </TabsTrigger>
                 <TabsTrigger
                   value="terms"
-                  className="flex items-center justify-center gap-2 rounded-lg text-xs sm:text-sm font-semibold transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm"
+                  className="flex items-center justify-center gap-1 sm:gap-2 rounded-lg text-[11px] sm:text-xs md:text-sm font-semibold transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm px-1 sm:px-3 truncate"
                 >
-                  <Scale className="size-3.5" />
-                  <span>Terms of Use</span>
+                  <Scale className="size-3 sm:size-3.5 shrink-0" />
+                  <span className="truncate">Terms of Use</span>
                 </TabsTrigger>
                 <TabsTrigger
                   value="allergens"
-                  className="flex items-center justify-center gap-2 rounded-lg text-xs sm:text-sm font-semibold transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm"
+                  className="flex items-center justify-center gap-1 sm:gap-2 rounded-lg text-[11px] sm:text-xs md:text-sm font-semibold transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm px-1 sm:px-3 truncate"
                 >
-                  <AlertTriangle className="size-3.5" />
-                  <span>Allergen Notice</span>
+                  <AlertTriangle className="size-3 sm:size-3.5 shrink-0" />
+                  <span className="truncate">Allergen Notice</span>
                 </TabsTrigger>
               </TabsList>
             </Tabs>

@@ -57,7 +57,7 @@ export function MenuBoardDialog({
         )}
       </DialogTrigger>
 
-      <DialogContent className="max-w-4xl max-h-[94vh] overflow-y-auto p-4 sm:p-7 bg-background border-border/80 shadow-2xl rounded-2xl">
+      <DialogContent className="w-[calc(100vw-1.5rem)] sm:w-full max-w-4xl max-h-[92svh] overflow-y-auto p-3.5 sm:p-7 bg-background border-border/80 shadow-2xl rounded-2xl">
         <DialogHeader className="text-left pb-2 border-b border-border/60">
           <div className="flex flex-wrap items-center gap-2 mb-1.5">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 border border-primary/20 px-3 py-0.5 text-xs font-bold uppercase tracking-wider text-primary">

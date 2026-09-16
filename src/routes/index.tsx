@@ -173,12 +173,12 @@ function Index() {
               </span>
             </div>
           </a>
-          <nav className="hidden items-center gap-4 xl:gap-6 lg:flex shrink-0" aria-label="Main navigation">
+          <nav className="hidden items-center gap-2 xl:gap-5 lg:flex shrink-0" aria-label="Main navigation">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="relative py-1 text-sm xl:text-base font-bold text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:rounded-full after:bg-accent after:transition-all after:duration-300 hover:after:w-full whitespace-nowrap"
+                className="relative py-1 text-xs xl:text-sm font-bold text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:rounded-full after:bg-accent after:transition-all after:duration-300 hover:after:w-full whitespace-nowrap"
               >
                 {item.label}
               </a>
@@ -220,7 +220,7 @@ function Index() {
         </div>
         {menuOpen && (
           <nav
-            className="border-t border-border bg-background px-5 py-6 lg:hidden"
+            className="border-t border-border bg-background px-5 py-6 lg:hidden max-h-[calc(100svh-5rem)] overflow-y-auto"
             aria-label="Mobile navigation"
           >
             <div className="mx-auto grid max-w-7xl gap-2">
@@ -288,23 +288,23 @@ function Index() {
                 <span className="h-px w-10 bg-accent" />
                 Northwest Edmonton
               </p>
-              <h1 className="max-w-3xl text-5xl font-semibold leading-[0.96] sm:text-6xl lg:text-8xl">
+              <h1 className="max-w-3xl text-4xl sm:text-6xl lg:text-8xl font-semibold leading-[1.05] sm:leading-[0.96]">
                 Your cozy corner for coffee, treats &amp; good moments.
               </h1>
               <p className="mt-6 max-w-xl text-base leading-7 text-primary-foreground/85 sm:text-lg">
                 A welcoming contemporary café with comfortable character, favourite drinks, and
                 something sweet waiting on the menu.
               </p>
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+              <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap sm:items-center">
                 <ReservationDialog
                   variant="hero"
-                  triggerClassName={`${buttonBase} btn-pulse bg-accent px-8 py-3.5 text-base sm:text-lg text-accent-foreground shadow-accent/30 hover:bg-accent/90 hover:shadow-2xl hover:shadow-accent/50`}
+                  triggerClassName={`${buttonBase} btn-pulse bg-accent px-8 py-3.5 text-base sm:text-lg text-accent-foreground shadow-accent/30 hover:bg-accent/90 hover:shadow-2xl hover:shadow-accent/50 w-full sm:w-auto`}
                 />
                 <MenuBoardDialog
                   trigger={
                     <button
                       type="button"
-                      className={`${buttonBase} btn-glass px-8 py-3.5 text-base sm:text-lg text-primary-foreground cursor-pointer`}
+                      className={`${buttonBase} btn-glass px-8 py-3.5 text-base sm:text-lg text-primary-foreground cursor-pointer w-full sm:w-auto`}
                     >
                       <Coffee className="size-5 text-accent" />
                       <span>Explore the Menu</span>
@@ -313,7 +313,7 @@ function Index() {
                 />
                 <a
                   href="#craft-story"
-                  className={`${buttonBase} btn-glass px-7 py-3.5 text-base sm:text-lg text-primary-foreground`}
+                  className={`${buttonBase} btn-glass px-7 py-3.5 text-base sm:text-lg text-primary-foreground w-full sm:w-auto`}
                 >
                   <Play className="size-4.5 text-accent fill-current" />
                   <span>Watch Our Craft</span>
@@ -322,7 +322,7 @@ function Index() {
                   href={directionsUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className={`${buttonBase} btn-glass px-7 py-3.5 text-base sm:text-lg text-primary-foreground`}
+                  className={`${buttonBase} btn-glass px-7 py-3.5 text-base sm:text-lg text-primary-foreground w-full sm:w-auto`}
                 >
                   <MapPin className="size-5 icon-pin-pop" />
                   <span>Directions</span>
@@ -400,8 +400,8 @@ function Index() {
             </div>
 
             {/* Category Filter Pills & In-Store Menu Board Trigger */}
-            <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
-              <div className="flex flex-wrap gap-2.5">
+            <div className="mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="flex w-full overflow-x-auto pb-2 scrollbar-none sm:w-auto sm:flex-wrap gap-2.5">
                 {menuCategories.map((cat) => {
                   const isActive = activeCategory === cat.id;
                   return (
@@ -409,7 +409,7 @@ function Index() {
                       key={cat.id}
                       type="button"
                       onClick={() => setActiveCategory(cat.id)}
-                      className={`cursor-pointer rounded-full px-5 py-2 text-sm font-bold transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${
+                      className={`shrink-0 cursor-pointer rounded-full px-5 py-2 text-sm font-bold transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${
                         isActive
                           ? "bg-primary text-primary-foreground shadow-md shadow-primary/20 scale-105"
                           : "border border-border/80 bg-background/80 text-foreground/85 hover:border-accent hover:bg-background hover:text-accent"
@@ -546,7 +546,7 @@ function Index() {
             <h2 id="favourites-heading" className="mt-4 text-5xl font-semibold sm:text-6xl">
               Customer-mentioned favourites.
             </h2>
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
               {[
                 {
                   id: "kahwa-signature-latte",
@@ -999,7 +999,7 @@ function Index() {
       <FooterSection directionsUrl={directionsUrl} navItems={navItems} />
 
       {/* Floating WhatsApp Action Widget */}
-      <aside aria-label="WhatsApp quick chat" className="fixed bottom-6 right-6 z-50">
+      <aside aria-label="WhatsApp quick chat" className="fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))] right-4 sm:right-6 z-40">
         <a
           href="https://wa.me/15874013212?text=Hello%20Kahwa%20Cafe%2C%20I%20would%20like%20to%20inquire%20about%20a%20table%20or%20menu"
           target="_blank"
