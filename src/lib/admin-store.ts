@@ -14,11 +14,13 @@ export interface SiteVisit {
   browser: string;
 }
 
+export type ClickType = "whatsapp" | "email" | "social" | "website";
+
 export interface ClickEvent {
   id: string;
-  type: "whatsapp" | "email";
+  type: ClickType;
   source: string;
-  target?: string;
+  target?: string | undefined;
   timestamp: string;
   device: "Mobile" | "Tablet" | "Desktop";
 }
@@ -587,10 +589,10 @@ export function getSiteVisits(): SiteVisit[] {
 }
 
 /* ==========================================================================
-   CLICK EVENT TRACKING (WhatsApp & Email)
+   CLICK EVENT TRACKING (WhatsApp, Email & Social Channels)
    ========================================================================== */
 
-export function trackClick(type: "whatsapp" | "email", source: string, target?: string): void {
+export function trackClick(type: ClickType, source: string, target?: string): void {
   if (!isClient()) return;
 
   const currentClicks = getFromStorage<ClickEvent[]>(STORAGE_KEYS.CLICKS, []);

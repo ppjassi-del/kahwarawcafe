@@ -30,6 +30,8 @@ import { MenuBoardDialog } from "@/components/menu-board-dialog";
 import { OrderInCafeDialog } from "@/components/order-in-cafe-dialog";
 import { CoffeeJourneyVideo } from "@/components/coffee-journey-video";
 import { AtmosphereVideo } from "@/components/atmosphere-video";
+import { SocialMediaButtons } from "@/components/social-media-buttons";
+import { FooterSection } from "@/components/footer-section";
 import {
   trackClick,
   getCafeSettings,
@@ -70,6 +72,7 @@ const navItems = [
   { label: "Menu", href: "#menu" },
   { label: "About", href: "#about" },
   { label: "FAQ", href: "#faq" },
+  { label: "Community", href: "#social" },
 ];
 
 const faqItems = [
@@ -250,6 +253,18 @@ function Index() {
                   <Shield className="size-4.5" />
                   <span>Admin Panel</span>
                 </Link>
+
+                <div className="mt-2 border-t border-border/60 pt-4">
+                  <p className="mb-3 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                    Connect With Us
+                  </p>
+                  <SocialMediaButtons
+                    variant="icons"
+                    size="sm"
+                    theme="light"
+                    trackingSource="Mobile Navigation Drawer"
+                  />
+                </div>
               </div>
             </div>
           </nav>
@@ -818,6 +833,45 @@ function Index() {
           </div>
         </section>
 
+        {/* Social Media & Community Showcase */}
+        <section
+          id="social"
+          className="scroll-mt-18 border-t border-border/60 bg-muted/20 py-20 lg:py-28"
+        >
+          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+            <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">
+                  Digital Lounge &amp; Community
+                </p>
+                <h2 className="mt-3 text-4xl font-semibold tracking-tight sm:text-6xl font-display">
+                  Connect with Kahwa Online
+                </h2>
+                <p className="mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
+                  Follow along for daily barista roasts, new seasonal treats, live café stories, and direct event updates across our official social channels.
+                </p>
+              </div>
+              <div className="shrink-0">
+                <SocialMediaButtons
+                  variant="pills"
+                  size="md"
+                  theme="light"
+                  trackingSource="Community Showcase Header"
+                />
+              </div>
+            </div>
+
+            <div className="mt-12">
+              <SocialMediaButtons
+                variant="cards"
+                size="md"
+                theme="light"
+                trackingSource="Community Cards Grid"
+              />
+            </div>
+          </div>
+        </section>
+
         <section
           id="visit"
           className="scroll-mt-18 bg-primary py-20 text-primary-foreground sm:py-28"
@@ -926,69 +980,23 @@ function Index() {
                   Check current hours before visiting
                 </p>
               </div>
+              <div className="mt-7 border-t border-primary-foreground/20 pt-6">
+                <p className="mb-3 text-xs font-bold uppercase tracking-wider text-accent">
+                  Follow &amp; Connect Online
+                </p>
+                <SocialMediaButtons
+                  variant="pills"
+                  size="sm"
+                  theme="dark"
+                  trackingSource="Visit Address Section"
+                />
+              </div>
             </address>
           </div>
         </section>
       </main>
 
-      <footer className="bg-foreground py-12 text-background">
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 md:grid-cols-[1fr_auto] lg:px-8">
-          <div>
-            <p className="font-display text-3xl font-semibold">Kahwa Raw Cafe</p>
-            <p className="mt-2 text-sm text-background/65">
-              180 Mistatim Rd NW, Edmonton, AB T6V 0M8
-            </p>
-            <div className="mt-2 flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-4">
-              <a
-                href="tel:+15874013212"
-                className="inline-block text-sm text-background/65 transition-colors hover:text-accent"
-              >
-                +1 587-401-3212
-              </a>
-              <span className="hidden text-background/30 sm:inline">•</span>
-              <a
-                href="mailto:contact@kahwacafe.ca"
-                onClick={() =>
-                  trackClick("email", "Footer Email Link", "contact@kahwacafe.ca")
-                }
-                className="inline-block text-sm text-background/65 transition-colors hover:text-accent"
-              >
-                contact@kahwacafe.ca
-              </a>
-            </div>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-3 md:justify-end">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-sm font-semibold text-background/70 transition-colors duration-200 hover:text-background"
-              >
-                {item.label}
-              </a>
-            ))}
-            <a
-              href={directionsUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="text-sm font-semibold text-accent underline-offset-4 hover:underline"
-            >
-              Directions
-            </a>
-          </div>
-          <div className="flex flex-col gap-2 border-t border-background/15 pt-6 text-xs text-background/50 sm:flex-row sm:items-center sm:justify-between md:col-span-2">
-            <p>© {year} Kahwa Raw Cafe. All rights reserved.</p>
-            <Link
-              to="/admin"
-              className="inline-flex items-center gap-1.5 font-medium text-background/40 transition-colors hover:text-accent"
-              title="Staff Operations & Intelligence Hub"
-            >
-              <Lock className="size-3" />
-              <span>Staff / Operations Portal</span>
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <FooterSection directionsUrl={directionsUrl} navItems={navItems} />
 
       {/* Floating WhatsApp Action Widget */}
       <aside aria-label="WhatsApp quick chat" className="fixed bottom-6 right-6 z-50">
